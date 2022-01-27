@@ -2,12 +2,13 @@
   "name": "tailpine",
   "version": "1.0.0",
   "description": "Tailwind & Alpine JS build template",
-  "config" : {
+  "config": {
     "css_src": "./src/css/app.css",
     "css_dist": "./dist/css/app.css",
     "css_dist_min": "./dist/css/app.min.css"
   },
   "scripts": {
+    "js:dev": "rollup -c --watch --verbose",
     "css:dev": "TAILWIND_MODE=WATCH postcss $npm_package_config_css_src -o $npm_package_config_css_dist --watch --verbose",
     "css:build": "NODE_ENV=PRODUCTION postcss $npm_package_config_css_src -o $npm_package_config_css_dist_min --verbose",
     "postcss:build": "gzip-size $npm_package_config_css_dist_min --include-original",
@@ -23,6 +24,7 @@
     "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
     "postcss-import": "^14.0.2",
+    "rollup": "^2.66.1",
     "tailwindcss": "^3.0.13"
   }
 }
